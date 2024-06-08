@@ -1,0 +1,28 @@
+{
+  "autos": [
+    {
+      "matricula": "ABC123",
+      "modelo": "Toyota",
+      "color": "Rojo",
+      "id": "1ad5"
+    },
+    {
+      "matricula": "XYZ789",
+      "modelo": "Honda",
+      "color": "Azul",
+      "id": "c1b6"
+    },
+    {
+      "id": "5aec",
+      "matricula": "KGF398",
+      "modelo": "Nissan",
+      "color": "Gris"
+    },
+    {
+      "id": "4eba",
+      "matricula": "sdh456",
+      "modelo": "Ford",
+      "color": "Verde"
+    }
+  ]
+}

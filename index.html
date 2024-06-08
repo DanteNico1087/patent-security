@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patent Security</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <img src="img/security_image_pro.jpg" alt="Security Image" class="header-image">
+        <h1>Patent Security</h1>
+    </header>
+    <main class="container">
+        <section class="form-section">
+            <h2>Verificar Matrícula</h2>
+            <form id="verifyForm">
+                <label for="matricula">Número de Matrícula:</label>
+                <input type="text" id="matricula" name="matricula" required>
+                <label for="modelo">Modelo del Auto:</label>
+                <input type="text" id="modelo" name="modelo" required>
+                <label for="color">Color del Auto:</label>
+                <input type="text" id="color" name="color" required>
+                <div class="button-group">
+                    <button type="submit">Verificar</button>
+                    <button type="button" id="clearVerifyForm">Limpiar</button>
+                </div>
+            </form>
+            <p id="verifyResult"></p>
+        </section>
+        <section class="form-section">
+            <h2>Cargar Datos Nuevos</h2>
+            <form id="loadForm">
+                <label for="newMatricula">Número de Matrícula:</label>
+                <input type="text" id="newMatricula" name="newMatricula" required>
+                <label for="newModelo">Modelo del Auto:</label>
+                <input type="text" id="newModelo" name="newModelo" required>
+                <label for="newColor">Color del Auto:</label>
+                <input type="text" id="newColor" name="newColor" required>
+                <div class="button-group">
+                    <button type="submit">Cargar</button>
+                    <button type="button" id="clearLoadForm">Limpiar</button>
+                </div>
+            </form>
+            <p id="loadResult"></p>
+        </section>
+    </main>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
