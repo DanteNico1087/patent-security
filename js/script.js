@@ -1,51 +1,60 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const verifyForm = document.getElementById('verifyForm');
-    const loadForm = document.getElementById('loadForm');
-    const clearVerifyForm = document.getElementById('clearVerifyForm');
-    const clearLoadForm = document.getElementById('clearLoadForm');
-    const verifyResult = document.getElementById('verifyResult');
-    const loadResult = document.getElementById('loadResult');
+verifyForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const matricula = document.getElementById('matricula').value;
+    const modelo = document.getElementById('modelo').value;
+    const color = document.getElementById('color').value;
 
-    verifyForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const matricula = document.getElementById('matricula').value;
-        const modelo = document.getElementById('modelo').value;
-        const color = document.getElementById('color').value;
-
-        // Aquí se debería realizar la verificación con la base de datos
-
-        // Ejemplo de verificación y alerta de seguridad
-        const isVerified = (matricula === '123ABC' && modelo === 'Toyota' && color === 'Rojo');
-        if (isVerified) {
-            verifyResult.textContent = 'Acceso permitido';
-            verifyResult.classList.remove('alert');
-            verifyResult.style.color = 'green';
-        } else {
-            verifyResult.textContent = '¡Alerta de seguridad!';
-            verifyResult.classList.add('alert');
+    // Obtener los datos de la base de datos simulada
+    const autos = {
+      "autos": [
+        {
+          "matricula": "ABC123",
+          "modelo": "Toyota",
+          "color": "Rojo",
+          "id": "1ad5"
+        },
+        {
+          "matricula": "XYZ789",
+          "modelo": "Honda",
+          "color": "Azul",
+          "id": "c1b6"
+        },
+        {
+          "id": "5aec",
+          "matricula": "KGF398",
+          "modelo": "Nissan",
+          "color": "Gris"
+        },
+        {
+          "id": "4eba",
+          "matricula": "sdh456",
+          "modelo": "Ford",
+          "color": "Verde"
         }
-    });
+      ]
+    };
 
-    loadForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const newMatricula = document.getElementById('newMatricula').value;
-        const newModelo = document.getElementById('newModelo').value;
-        const newColor = document.getElementById('newColor').value;
+    // Verificar si los datos ingresados coinciden con los de la base de datos
+    const isVerified = autos.autos.some(auto => auto.matricula === matricula && auto.modelo === modelo && auto.color === color);
 
-        // Aquí se debería realizar la carga de nuevos datos en la base de datos
-
-        loadResult.textContent = 'Datos cargados exitosamente';
-        loadResult.style.color = 'green';
-    });
-
-    clearVerifyForm.addEventListener('click', () => {
-        verifyForm.reset();
-        verifyResult.textContent = '';
+    if (isVerified) {
+        verifyResult.textContent = 'Acceso permitido';
         verifyResult.classList.remove('alert');
-    });
+        verifyResult.style.color = 'green';
+    } else {
+        verifyResult.textContent = '¡Alerta de seguridad!';
+        verifyResult.classList.add('alert');
+        verifyResult.style.color = 'white';
+    }
+});
 
-    clearLoadForm.addEventListener('click', () => {
-        loadForm.reset();
-        loadResult.textContent = '';
-    });
+clearVerifyForm.addEventListener('click', () => {
+    // Resetear el formulario
+    verifyForm.reset();
+    // Limpiar el mensaje de resultado
+    verifyResult.textContent = '';
+    // Remover cualquier clase de alerta
+    verifyResult.classList.remove('alert');
+    // Restablecer el color del texto
+    verifyResult.style.color = '';
 });
